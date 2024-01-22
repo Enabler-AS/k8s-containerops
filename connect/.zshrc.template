@@ -1,0 +1,34 @@
+### ZSH HOME
+export ZSH=$HOME/.zsh
+
+# Set up the prompt
+
+autoload -Uz promptinit
+promptinit
+prompt adam1
+
+setopt histignorealldups sharehistory
+
+# Use emacs keybindings even if our EDITOR is set to vi
+bindkey -e
+
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=$ZSH/.zsh_history
+
+# Use modern completion system
+autoload -Uz compinit
+compinit
+
+# Aliases
+alias k=kubectl
+
+# Completions
+source <(kubectl completion zsh)
+source <(flux completion zsh)
+
+# Themes and plugins
+source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fpath=($ZSH/plugins/zsh-completions/src $fpath)

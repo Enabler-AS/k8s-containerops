@@ -1,0 +1,17 @@
+services:
+  demo:
+    build: 
+      context: .
+      args:
+        - KUBECTL_VERSION=1.29.1
+        - K9S_VERSION=0.31.7
+        - FLUX_VERSION=2.2.2
+    networks:
+      - kind
+    stdin_open: true
+    volumes:
+      - ./clusters/demo/kubeconfig:/home/captain/.kube/config
+      - ../gitops/clusters/demo/:/home/captain/gitops/clusters/demo
+networks:
+  kind:
+    external: true
