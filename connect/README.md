@@ -12,7 +12,7 @@ kind create cluster --name demo --image kindest/node:v1.29.0
 ```
 
 ## Get Kind cluster kubeconfig files
-From this directory run:
+In this directory create a folder "demo" and run:
 ```bash
 kind get kubeconfig --name demo --internal > ./clusters/demo/kubeconfig
 ```
