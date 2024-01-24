@@ -47,7 +47,11 @@ flux bootstrap github --token-auth --owner=<your-github-user> --repository=<your
 You will be asked to provide your GitHub PAT, and Flux will be installed in your cluster.
 The installation of Flux will be dependent on the Flux CLI version you have. By updating the version of Flux used defined in the [docker-compose.yaml](./docker-compose.yaml) you can run the bootstrap command again to install a new version of Flux in your cluster.
 
-Flux will overwrite the exsisting flux-system folder under "/gitops/clusters/demo/flux-system" with your set up.
+Flux will overwrite the exsisting flux-system folder under "/gitops/clusters/demo/flux-system" with your set up. Pull the new changes from your repo:
+
+```bash
+git pull
+```
 
 ## Test your gitops setup
 
